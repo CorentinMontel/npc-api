@@ -8,7 +8,7 @@ export default class ApiResponder {
         this.res.json(content)
     }
 
-    sendNotFound(content = {message: "NotFound"}) {
+    sendNotFound(content = {message: "Not Found!"}) {
         this.res.status(404)
         this.res.json(content)
     }

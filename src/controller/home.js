@@ -7,7 +7,7 @@ export default {
 
         const npc = new Npc({ name: "Coco l'asticot" });
         await npc.save()
-
+        console.log('pnj créé')
         new ApiResponder(res).sendCreated(npc)
     },
 

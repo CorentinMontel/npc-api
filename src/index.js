@@ -1,21 +1,17 @@
 import express from "express"
 import Routes from "./routes";
 import mongoose from "mongoose";
+import connectDB from "./middleware/connectDB";
+
+mongoose.set('strictQuery', true);
 
 
 // Instantiate Express app
 const app = express()
 const port = 3000
 
-app.use(async (req, res, next) => {
-    await mongoose.connect('mongodb://npc:pass@localhost:27017/npc');
-
-    res.on('finish', async () => {
-        await mongoose.connection.close()
-    })
-
-    next()
-})
+//connect tu mongoDB
+app.use(connectDB)
 
 // Register routes
 Routes(app)
